@@ -23,7 +23,8 @@ $routes->post('update', 'UserCrud::update');
 $routes->post('submit-form', 'UserCrud::store');
 $routes->get('/forgot-password', 'ForgotPasswordController::index');
 $routes->post('/forgot-pass', 'ForgotPasswordController::sendResetLink');
-$routes->get('/reset-password/(:any)', 'ResetPasswordController::index/$1');
+$routes->post('/reset-password', 'ResetPasswordController::resetPassword');
+$routes->get('/reset-password/(:any)', 'ResetPasswordController::showResetForm/$1');
 $routes->post('/reset-password/(:any)', 'ResetPasswordController::resetPassword/$1');
 
 

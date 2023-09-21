@@ -11,7 +11,6 @@ class EmployeeModel extends Model
         'name',
         'email',
         'password',
-        'password_resets',
         'created_at'
     ];
 }

@@ -1,4 +1,7 @@
 <?php
+// Add this at the top of your main index.php or other relevant entry point
+require_once __DIR__ . '/../vendor/autoload.php';
+
 
 // Check PHP version.
 $minPhpVersion = '7.4'; // If you update this, don't forget to update `spark`.

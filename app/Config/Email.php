@@ -3,11 +3,12 @@
 namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
+use Dotenv\Dotenv;
 
 class Email extends BaseConfig
 {
-    public string $fromEmail  = '';
-    public string $fromName   = '';
+    public string $fromEmail  = 'reejuballabh269@gmail.com';
+    public string $fromName   = 'Reeju Ballabh';
     public string $recipients = '';
 
     /**
@@ -18,7 +19,7 @@ class Email extends BaseConfig
     /**
      * The mail sending protocol: mail, sendmail, smtp
      */
-    public string $protocol = 'mail';
+    public string $protocol = 'smtp';
 
     /**
      * The server path to Sendmail.
@@ -28,22 +29,30 @@ class Email extends BaseConfig
     /**
      * SMTP Server Address
      */
-    public string $SMTPHost = '';
+    public string $SMTPHost = 'smtp.gmail.com';
 
     /**
      * SMTP Username
      */
-    public string $SMTPUser = '';
+    public string $SMTPUser = 'reejuballabh269@gmail.com';
 
     /**
      * SMTP Password
      */
-    public string $SMTPPass = '';
+    public function __construct()
+    {
+        // Load environment variables from .env
+        $dotenv = Dotenv::createImmutable(ROOTPATH);
+        $dotenv->load();
+
+        // Assign the SMTP password from the environment variable
+        $this->SMTPPass = $_ENV['SMTP_PASS'];
+    }
 
     /**
      * SMTP Port
      */
-    public int $SMTPPort = 25;
+    public int $SMTPPort = 587;
 
     /**
      * SMTP Timeout (in seconds)
